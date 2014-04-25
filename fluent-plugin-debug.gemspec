@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
   gem.authors     = ["Naotoshi Seo"]
   gem.email       = "sonots@gmail.com"
   gem.homepage    = "https://github.com/sonots/fluent-plugin-debug"
-  gem.description = "Fluentd plugin to output incoming messages withtout <store></store> directive"
+  gem.description = "Fluentd plugin to investigate incoming messages in a short-hand"
   gem.summary     = gem.description
   gem.licenses    = ["MIT"]
   gem.has_rdoc    = false

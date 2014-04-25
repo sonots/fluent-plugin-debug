@@ -3,7 +3,7 @@
 [![Build Status](https://secure.travis-ci.org/sonots/fluent-plugin-debug.png?branch=master)](http://travis-ci.org/sonots/fluent-plugin-debug)
 [![Code Climate](https://codeclimate.com/github/sonots/fluent-plugin-debug.png)](https://codeclimate.com/github/sonots/fluent-plugin-debug)
 
-Fluentd plugin to output incoming messages without `<store></store>` directives.
+Fluentd plugin to investigate incoming messages in a short-hand.
 
 ## Installation
 
@@ -13,7 +13,7 @@ Use RubyGems:
 
 ## What is this for?
 
-You use `out_copy` and `out_stdout` to see incoming messages?
+Do you use `out_copy` and `out_stdout` to see incoming messages?
 
 ```apache
 <match **>
@@ -28,7 +28,7 @@ You use `out_copy` and `out_stdout` to see incoming messages?
 </match>
 ```
 
-This plugin enables to write the same thing in short hand as:
+This plugin enables to write the same thing in a short-hand as:
 
 ```apache
 <match **>
@@ -38,7 +38,7 @@ This plugin enables to write the same thing in short hand as:
 </match>
 ```
 
-What you have to do is just adding `debug true`. 
+Just add `debug true`. 
 
 ## Configuration
 
@@ -59,6 +59,10 @@ This plugin is doing something tricky, which extends arbitrary plugins so that t
 ## ChangeLog
 
 See [CHANGELOG.md](CHANGELOG.md) for details.
+
+## Note
+
+This plugin is dedicated to [@hirose31](https://github.com/hirose31). 
 
 ## Contributing
 
