@@ -7,7 +7,7 @@ def capture_log(&block)
   tmp = $log
   $log = StringIO.new
   yield
-  return $log
+  return $log.string
 ensure
   $log = tmp
 end
@@ -21,7 +21,12 @@ describe Fluent::DebugInput do
 
   describe 'test configure' do
     it { expect { create_driver }.not_to raise_error }
+    it { expect { create_driver(%[debug_all true]) }.not_to raise_error }
   end
+end
+
+describe "debug_all" do
+  # There is not suitable test driver ...
 end
 
 describe "extends Fluent::StdoutOutput" do
@@ -52,10 +57,9 @@ describe "extends Fluent::StdoutOutput" do
         chain = Fluent::NullOutputChain.instance
         d.emit('tag', Fluent::OneEventStream.new(0, {'a'=>1}), chain)
       end
-      debug_stdout = out.gets
-      out_stdout   = out.gets
+      debug_stdout, out_stdout = out.split("\n")
+      debug_stdout.should_not be_nil
       debug_stdout.should == out_stdout
     end
   end
 end
-

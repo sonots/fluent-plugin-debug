@@ -28,7 +28,7 @@ Do you use `out_copy` and `out_stdout` to see incoming messages?
 </match>
 ```
 
-This plugin enables to write the same thing in a short-hand as:
+This plugin enables to write the same thing in a short-hand, by just adding `debug true`, as:
 
 ```apache
 <match **>
@@ -38,16 +38,13 @@ This plugin enables to write the same thing in a short-hand as:
 </match>
 ```
 
-Just add `debug true`. 
-
 ## Configuration
 
 This plugin is doing something tricky, which extends arbitrary plugins so that they can use `debug` option parameter. 
 
 ```apache
 <source>
-  type debug
-  # This makes available the `debug` parameter for all output plugins
+  type debug # This makes available the `debug` option for all output plugins
 </source>
 
 <match **>
@@ -55,6 +52,35 @@ This plugin is doing something tricky, which extends arbitrary plugins so that t
   debug true # Now you can use `debug true`
 </match>
 ```
+
+If you are lazy to write even `debug true`, you may use `debug_all` option. 
+
+```apache
+<source>
+  type debug
+  debug_all true # This makes turn on the `debug` option for all output plugins
+</source>
+
+<match **>
+  type file # Now you don't need even to add `debug true`
+</match>
+```
+
+## Options
+
+### Options (source)
+
+* debug_all
+
+  * Apply `debug true` for all output plugins
+
+### Options (output plugins)
+
+This plugin extends all output plugins and enables to use the following options:
+
+* debug (bool)
+
+  * Enable to output the incoming messages
 
 ## ChangeLog
 
