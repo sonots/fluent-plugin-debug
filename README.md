@@ -19,11 +19,10 @@ Do you use `out_copy` and `out_stdout` to see incoming messages?
 <match **>
   type copy
   <store>
-    type stdout
+    type stdout # output incoming messages here for debug
   </store>
   <store>
-    type file
-    # blah blah
+    type file # something you want to do in production
   </store>
 </match>
 ```
@@ -32,9 +31,8 @@ This plugin enables to write the same thing in a short-hand, by just adding `deb
 
 ```apache
 <match **>
-  type file
-  debug true
-  # blash blah
+  type file # something you want to do in production
+  debug true # just add this for debug
 </match>
 ```
 
