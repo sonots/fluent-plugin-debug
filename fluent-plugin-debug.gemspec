@@ -20,6 +20,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "fluentd", "~> 0.10.17"
   gem.add_development_dependency "rake"
   gem.add_development_dependency "rspec"
+  gem.add_development_dependency "rspec-its"
   gem.add_development_dependency "pry"
   gem.add_development_dependency "pry-nav"
 end
